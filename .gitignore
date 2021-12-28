@@ -1,3 +1,6 @@
 output/**
 *.glsl.inc
-
+/bin/
+/platform/windows/_intermediate/
+/platform/windows/external/
+!platform/windows/external/dummy.txt

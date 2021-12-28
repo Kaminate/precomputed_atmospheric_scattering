@@ -1,5 +1,4 @@
 @echo off
-REM     https://cmake.org/files/v3.9/cmake-3.9.6-win64-x64.zip -> cmake
 REM     https://sourceforge.net/projects/gnuwin32/files/sed/4.2.1/sed-4.2.1-bin.zip/download -> sed
 REM     https://sourceforge.net/projects/gnuwin32/files/sed/4.2.1/sed-4.2.1-dep.zip/download -> sed
 REM     https://files.transmissionzero.co.uk/software/development/GLUT/freeglut-MSVC-3.0.0-2.mp.zip -> freeglut
@@ -47,20 +46,6 @@ powershell -Command "Start-BitsTransfer '%SRC%' '%ZIP%'"
 powershell -Command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('%ZIP%', '%DST%'); }"
 del %ZIP%
 ) else echo sed-dep detected. skipping.
-
-REM ------------------ cmake
-
-set SRC=https://cmake.org/files/v3.9/cmake-3.9.6-win64-x64.zip
-set ZIP=%EXT%\cmake-3.9.6-win64-x64.zip
-set DST=%EXT%\.
-
-if not exist %EXT%\cmake (
-echo Downloading cmake from %SRC%...
-powershell -Command "Start-BitsTransfer '%SRC%' '%ZIP%'"
-powershell -Command "& { Add-Type -A 'System.IO.Compression.FileSystem'; [IO.Compression.ZipFile]::ExtractToDirectory('%ZIP%', '%DST%'); }"
-rename %EXT%\cmake-3.9.6-win64-x64 cmake
-del %ZIP%
-) else echo cmake detected. skipping.
 
 :end
 if NOT '%1' == 'NOPAUSE' pause

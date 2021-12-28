@@ -33,6 +33,11 @@
 application.
 */
 
+// Run with Nvidia GPU on laptop
+extern "C" {
+	_declspec(dllexport) unsigned NvOptimusEnablement = 0x00000001;
+}
+
 #include "atmosphere/demo/demo.h"
 
 #include <glad/glad.h>
