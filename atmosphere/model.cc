@@ -685,6 +685,8 @@ Model::Model(
   ComputeSpectralRadianceToLuminanceFactors(wavelengths, solar_irradiance,
       0 /* lambda_power */, &sun_k_r, &sun_k_g, &sun_k_b);
 
+  assert( *definitions_glsl != '\0' );
+
   // A lambda that creates a GLSL header containing our atmosphere computation
   // functions, specialized for the given atmosphere parameters and for the 3
   // wavelengths in 'lambdas'.

@@ -1,4 +1,4 @@
 @echo off
 set CURDIR=%~dp0
 
-%CURDIR%\..\..\bin\Atmosphere.exe
+"%CURDIR%\..\..\bin\Atmosphere.exe"
